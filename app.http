@@ -1,0 +1,43 @@
+# test cases for endpoint 1:
+
+GET http://localhost:3000/api/startups
+###
+GET http://localhost:3000/api/startups?country=USA
+###
+GET http://localhost:3000/api/startups?country=USA&industry=AI
+###
+
+GET http://localhost:3000/api/startups?industry=renewable%20energy&country=germany&has_mvp=true
+###
+// Result: You should get an array with 1 object: "GreenGrid Energy".
+
+GET http://localhost:3000/api/startups?industry=renewable%20energy&country=germany&has_mvp=false
+###
+// Result: You should get an empty array [] (Because GreenGrid Energy does have an MVP)
+
+GET http://localhost:3000/api/startups?continent=asia&is_seeking_funding=true&has_mvp=true
+###
+// Result: You should get exactly 4 startup objects (IDs 3, 22, 26, 29) that match all three criteria!
+
+
+# test cases for endpoint 2:
+
+GET http://localhost:3000/api/country/india
+###
+GET http://localhost:3000/api/continent/europe
+###
+GET http://localhost:3000/api/industry/ai
+###
+
+
+# test cases for endpoint 3:
+
+GET http://localhost:3000/api/name/TechNova AI
+###
+GET http://localhost:3000/api/has_mvp/false
+###
+
+
+GET http://localhost:3000/apj/has_mvp/false
+###
+
