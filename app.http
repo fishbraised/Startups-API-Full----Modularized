@@ -41,3 +41,5 @@ GET http://localhost:3000/api/has_mvp/false
 GET http://localhost:3000/apj/has_mvp/false
 ###
 
+
+GET http://localhost:3000/users/search?name=alice

@@ -1,9 +1,11 @@
 import express from "express";
 import startUpRouter from "./src/routes/startUpRoutes.js";
 import userRouter from "./src/routes/userRoutes.js";
+import cors from "cors";
 
 const app = express();
 const port = process.env.PORT || 3000;
+app.use(cors());
 
 app.use("/startups", startUpRouter);
 app.use("/users", userRouter);
@@ -17,8 +19,6 @@ app.use((req, res) => {
 app.listen(port, () => {
   console.log(`Server is running at port:${port}...`);
 });
-
-// after doing everything commit and check if redeployed in Render or not.
 
 // use react-router (frontend):
 // after doing all that, test in a small new react project with a basic startup card for each startup
